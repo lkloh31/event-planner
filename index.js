@@ -16,6 +16,8 @@ const API = BASE + COHORT + RESOURCE;
 // === State ===
 let parties = [];
 let selectedParty;
+let guests = [];
+let rsvpList = [];
 
 async function getParties() {
   try {
@@ -34,9 +36,30 @@ async function getParty(id) {
     const response = await fetch(API + "/" + id);
     const result = await response.json();
     selectedParty = result.data;
-    // console.log(selectedParty);
   } catch (error) {
-    console.log(error);
+    console.error(error);
+  }
+  render();
+}
+
+async function getGuests() {
+  try {
+    const response = await fetch(BASE + COHORT + "/guests");
+    const result = await response.json();
+    guests = result.data;
+  } catch (error) {
+    console.error(error);
+  }
+  render();
+}
+
+async function getRSVPs() {
+  try {
+    const response = await fetch(BASE + COHORT + "/rsvps");
+    const result = await response.json();
+    rsvpList = result.data;
+  } catch (error) {
+    console.error(error);
   }
   render();
 }
@@ -71,16 +94,16 @@ function PartyDetails() {
     $p.textContent = "Please select a party to learn more.";
     return $p;
   } else {
-    const $p = document.createElement("section");
-    $p.classList.add("party");
+    const $detail = document.createElement("section");
+    $detail.classList.add("party");
     const date = selectedParty.date.slice(0, 10);
-    $p.innerHTML = `
+    $detail.innerHTML = `
         <h3>${selectedParty.name} #${selectedParty.id}</h3>
         <time>${date}</time>
         <address>${selectedParty.location}</address>
         <p>${selectedParty.description}</p>
     `;
-    return $p;
+    return $detail;
   }
 }
 

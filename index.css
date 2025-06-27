@@ -49,6 +49,10 @@ section {
   background: #eee;
 }
 
+.partylist li.selected {
+  font-style: italic;
+}
+
 .party {
   display: grid;
   gap: 1ch;
