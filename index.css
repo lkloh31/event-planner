@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: rgb(210, 210, 218);
 }
 
 h1 {
@@ -9,9 +10,18 @@ h1 {
   padding: 1rem;
 }
 
+h2 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 main {
   display: grid;
   gap: 1rem;
+  padding: 1rem;
+  border: 2px solid rgb(23, 128, 0);
+  border-radius: 3ch;
+  margin: 1rem;
 }
 
 section {
@@ -44,10 +54,10 @@ section {
   gap: 1ch;
 }
 
-img {
+/* img {
   max-width: 100%;
   object-fit: contain;
-}
+} */
 
 @media (width > 600px) {
   main {

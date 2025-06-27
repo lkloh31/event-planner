@@ -76,10 +76,8 @@ function PartyDetails() {
     const date = selectedParty.date.slice(0, 10);
     $p.innerHTML = `
         <h3>${selectedParty.name} #${selectedParty.id}</h3>
-        <p>
-            <time>${date}</time>
-            <address>${selectedParty.location}</address>
-        </p>
+        <time>${date}</time>
+        <address>${selectedParty.location}</address>
         <p>${selectedParty.description}</p>
     `;
     return $p;
@@ -93,7 +91,7 @@ function render() {
     <h1>Party Planner</h1>
     <main>
         <section>
-            <h1>Upcoming Parties</h2>
+            <h2>Upcoming Parties</h2>
             <PartyList></PartyList>
         </section>
         <section id="selected">
